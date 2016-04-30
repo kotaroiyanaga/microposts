@@ -10,19 +10,22 @@ class UsersController < ApplicationController
   end
   
   def edit
-    if (current_user != params[:id])
-       redirect_to "home"
+    @user = User.find(params[:id])
+    if (@current_user.id != @user.id)
+       redirect_to root_path
     end
      # http://hogehoge/users/1/edit
-    @user = User.find(params[:id])
-     # form_for(@user) 
+     #@user = User.find(params[:id])
+     # form_for(@user)
+     
   end
   
   def update
-    if (current_user != params[:id])
-       redirect_to "home"
+    @user = User.find(params[:id])
+    if ( @current_user.id != @user.id)
+       redirect_to root_path
     end
-    if @user.update(user_params)
+    if @user.update(user_profile)
       redirect_to user_path , notice: 'ユーザー情報を更新しました'
     else
       render 'edit'
@@ -44,5 +47,10 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password,
                                  :password_confirmation)
+  end
+  
+  def user_profile
+    params.require(:user).permit(:name, :email, :password,
+                    :password_confirmation, :region)
   end
 end

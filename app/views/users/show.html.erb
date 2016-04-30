@@ -1,4 +1,8 @@
 <h1>
   <%= gravatar_for @user %>
   <%= @user.name %>
+  </br>
+  <%= @user.region %>
+  </br>
+  <%= link_to "edit" , edit_user_path(current_user) %>
 </h1>
