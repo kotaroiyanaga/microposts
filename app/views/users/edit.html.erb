@@ -1,5 +1,6 @@
 <h1>
 <%= form_for(@current_user) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
   
   <%= f.label :name %>
   <%= f.text_field :name, class: 'form-control' %>
@@ -9,6 +10,12 @@
   
   <%= f.label :region %>
   <%= f.text_field :region, class: 'form-control' %>
+  
+  <%= f.label :password %>
+  <%= f.password_field :password, class: 'form-control' %>
+  
+  <%= f.label :password_confirmation, "Confirmation" %>
+  <%= f.password_field :password_confirmation, class:'form-control' %>
   
   <%= f.submit "Edit my account", class: "btn btn-primary" %>
 <% end %>  
