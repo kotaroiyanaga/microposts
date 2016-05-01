@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.order(created_at: :desc)
   end
   
   def new
@@ -25,3 +26,4 @@ class UsersController < ApplicationController
                                  :password_confirmation)
   end
 end
+
