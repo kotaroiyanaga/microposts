@@ -30,6 +30,7 @@ class UsersController < ApplicationController
       redirect_to user_path , notice: 'ユーザー情報を更新しました'
     else
       render 'edit'
+      flash[:alert] = "エラーが発生しました"
     end
   end
   

@@ -1,4 +1,5 @@
-<h1>
+<h1>Edit your pofile</h1>
+
 <%= form_for(@current_user) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   
@@ -17,6 +18,5 @@
   <%= f.label :password_confirmation, "Confirmation" %>
   <%= f.password_field :password_confirmation, class:'form-control' %>
   
-  <%= f.submit "Edit my account", class: "btn btn-primary" %>
+  <%= f.submit "Edit your account", class: "btn btn-primary" %>
 <% end %>  
-</h1>
