@@ -34,9 +34,18 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+#Use paginate
+gem 'will_paginate', '3.0.7'
+
+#Use bootstrap_paginate
+gem 'bootstrap-will_paginate', '0.0.10'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  
+gem 'kaminari'
+
 end
 
 group :development do

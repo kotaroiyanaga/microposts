@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-  validates :region, presence: true, length: { maximum: 20 }
+  validates :region, presence: true, length: { maximum: 20 }, on: :update
   has_secure_password
   has_many :microposts
   
@@ -36,6 +36,7 @@ class User < ActiveRecord::Base
   end  
   
   def feed_items
-    Microposts.where(user_id: following_user_ids + [self.id] )
+    Micropost.where(user_id: following_user_ids + [self.id] )
   end
+
 end

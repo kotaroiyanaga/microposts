@@ -9,7 +9,7 @@
       </h1>
     </section>
   </aside>
-  <div class="col-md-8">
+  <div class="col-md-4">
     <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
@@ -18,4 +18,23 @@
       </ol>
     <% end %>
   </div>
+  <div class="col-md-8">
+    <% if @user.following_users.any? %>
+      <h3>Following Users</h3>
+      <ol class="users following">
+        <%= render @user.following_users %>
+      </ol>
+    <% end %>
+  </div>
+  <div class="col-md-offset-4 col-md-8">
+    <% if @user.follower_users.any? %>
+      <h3>Follower Users</h3>
+      <ol class="users follower">
+        <%= render @user.follower_users %>
+      </ol>
+    <% end %>
+  </div>
+  
+  <%= paginate @users %>
+
 </div>

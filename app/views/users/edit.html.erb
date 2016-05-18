@@ -1,6 +1,7 @@
 <h1>Edit your pofile</h1>
 
-<%= form_for(@current_user) do |f| %>
+
+<%= form_for(current_user) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   
   <%= f.label :name %>
