@@ -37,7 +37,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 #Use bootstrap_paginate
-gem 'bootstrap-will_paginate', '0.0.10'
+#gem 'bootstrap-will_paginate', '0.0.10'
 
 gem 'kaminari'
 
