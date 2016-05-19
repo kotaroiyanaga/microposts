@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @microposts = @user.microposts.order(created_at: :desc)
     @following = @user.following_users
     @followers = @user.follower_users
-    @users= User.page(params[:page]).per(10).order(:id)
+    @microposts = @user.microposts.order(created_at: :desc).page(params[:page]).per(10)
   end
   
   def new
